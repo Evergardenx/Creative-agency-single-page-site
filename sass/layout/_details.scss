@@ -1,0 +1,238 @@
+@use '../abstracts';
+@use '../base';
+
+.details{
+
+    @include abstracts.grid;
+    background-color: abstracts.$primary500;
+    
+    @include abstracts.breakpoint-up(medium){
+        background-color: transparent;
+        grid-template-rows: repeat(12, 6.8rem);
+        column-gap: 1rem;
+    }
+
+    @include abstracts.breakpoint-up(large){
+        grid-template-rows: repeat(12, 9rem);
+    }
+   
+
+
+    &__image{
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+        height: 12.5rem;
+        background-image: url('../assets/mobile/image-strategic.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include abstracts.breakpoint-up(medium){
+            background-image: url('../assets/tablet/image-strategic.jpg');
+            height: 41.125rem;
+            grid-column: 1 / 7;
+            grid-row: 1 / 7;
+        }
+
+        @include abstracts.breakpoint-up(large){
+            background-image: url('../assets/desktop/image-strategic.jpg');
+            height: 61.5rem;
+            
+        }
+    }
+
+    &__design{
+        padding-top: 3.125rem;
+        padding-bottom: 4.5rem;
+       
+        
+    // At first, I used 'grid-template-columns: subgrid;', but this is supported only in firefox for now (Apr 2021)
+        @include abstracts.grid;
+
+        align-content: center;
+        justify-content: center;
+        grid-row: 2;
+        grid-column: 1 / -1;
+        background-color: abstracts.$secondary500;
+
+        @include abstracts.breakpoint-up(medium){
+            grid-template-columns: 
+         
+        repeat(4, minmax(1rem, 7.8125rem))
+        minmax(1.5rem, 1fr);
+             padding: 6.125rem 0 7.5rem 0;
+             grid-column: 6 / -1;
+             grid-row: 1 / 6;
+        }
+
+        @include abstracts.breakpoint-up(large){
+            column-gap: 1rem;
+            padding: 8rem 0 12.5rem 0;
+            
+        }
+
+        &::before{
+            content: '';
+            background-image: url('../assets/desktop/bg-pattern-wave-red.svg');
+            background-size: cover;
+            position: absolute;
+
+            transform: translate(1rem, -4.125rem);
+            width: 3.9375rem;
+            height: 1.8125rem;
+
+            @include abstracts.breakpoint-up(medium){
+                
+                transform: translate(-1.9687rem, 2.5rem);
+            }
+
+            @include abstracts.breakpoint-up(large){
+
+                width: 8.4375rem;
+                height: 3.8125rem;
+                transform: translate(-4.2rem, 2.5rem);
+            }
+
+                    
+        }
+
+    }
+
+    &__headline{
+       
+       grid-column: 2 / 9;
+        position: relative;
+        @include abstracts.breakpoint-up(large){
+           max-width: 27.8125rem;
+        }
+        br{
+            display: none;
+            @include abstracts.breakpoint-up(medium){
+                display: inline;
+            }
+
+        }
+    }
+
+    &__paragraph{
+        margin-top: 0;
+        grid-column: 2 / 9;
+        @include abstracts.breakpoint-up(medium){
+            grid-column: 2 / 5;
+        }
+        @include abstracts.breakpoint-up(large){
+            max-width: 27.8125rem;
+         }
+    }
+
+    &__button{
+        grid-column: 2 / 5;
+        justify-self: flex-start;
+    }
+
+    &__approach{
+        
+        grid-row: 3;
+        grid-column: 2 / 10;
+        color: abstracts.$primary10;
+        padding-top: 4.625rem; 
+        padding-bottom: 2.875rem;
+
+        @include abstracts.breakpoint-up(medium){
+            background-color: transparent;
+            color: abstracts.$secondary900;
+            grid-column: 2 / 5;
+            grid-row: 8 / 13;
+            z-index: 10;
+        }
+
+        @include abstracts.breakpoint-up(large){
+            grid-column: 2 / 6;
+        }
+    }
+
+    &__list{
+        grid-row: 4;
+        grid-column: 1 / -1;
+        background-color: abstracts.$primary500;
+        color: abstracts.$primary10;
+        position: relative;
+
+        @include abstracts.grid;
+
+        @include abstracts.breakpoint-up(medium){
+            grid-template-columns: 
+            repeat(5, minmax(1rem, 7.8125rem))
+            minmax(1.5rem, 1fr);
+            ;
+
+            padding: 7.5rem 0 7.5rem 0;
+            grid-column: 5 / -1;
+            grid-row:  6 / 13;
+        }
+
+        @include abstracts.breakpoint-up(large){
+            padding-top: 12.5rem;
+            padding-bottom: 7.5rem;
+        }
+
+        /* the default list style type is overwritten with "counter". 
+        The leading zero can be set in "list-style-type: decimal-leading-zero",
+        but there will be a dot after the number "01. 02. 03. " etc. 
+
+        tutorial: https://codepen.io/maddesigns/pen/JGQejg
+        stackoverflow: https://stackoverflow.com/questions/5290587/is-there-a-way-to-append-leading-zeros-to-an-ordered-number-list-01-or-001-as
+        documentation: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
+        */
+        ol{
+            list-style-type: none;
+            counter-reset: li;
+            display: inline-block;
+            padding-left: 1rem;
+            margin-bottom: 1.25rem;
+            grid-column: 2 / 9;
+
+            @include abstracts.breakpoint-up(medium){
+                grid-column: 2 / 6;
+            }
+            
+            @include abstracts.breakpoint-up(large){
+                grid-column: 3 / 6;
+                max-width: 27.8125rem;
+                padding-left: 0;
+            }
+
+  
+        }
+
+        li{
+            padding-bottom: 2.2rem;
+        }
+
+        li::before{
+            counter-increment: li;
+            content: counter(li, decimal-leading-zero);
+            position: absolute;
+
+            font-size: 5rem;
+            line-height: 5.5rem;
+            font-weight: base.$extraBold;
+            left: 1.5rem;
+            transform: translateY(-2.8rem);
+            opacity: 0.25;
+
+            @include abstracts.breakpoint-up(medium){
+                left: 4rem;
+            }
+
+            @include abstracts.breakpoint-up(large){
+                left: 14rem;
+            }
+        }
+
+        p {
+            margin-top: 1rem;
+        }
+    }
+
+}

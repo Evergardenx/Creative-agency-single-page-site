@@ -1,0 +1,96 @@
+@use '../abstracts';
+@use '../base';
+
+.button {
+  text-decoration: none;
+  font-weight: base.$extraBold;
+  text-transform: capitalize;
+  display: inline-block;
+  transition: background-color 200ms ease-in-out;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: abstracts.$primary300;
+  }
+
+  :focus, :focus-visible{
+    border: dotted 2px blue;
+  }
+
+  &--primary {
+        @extend .button;
+        font-size: 1.125rem;
+        color: abstracts.$primary10;
+        padding: 1.5625rem 2.1875rem;
+        background-color: abstracts.$primary500;
+    }
+
+    &--secondary {
+        @extend .button;
+        font-size: 1rem;
+        color: abstracts.$primary10;
+        padding: 1.4375rem 1.125rem;
+        background-color: abstracts.$secondary500;
+        
+        &:hover {
+            background-color: abstracts.$secondary400;
+          }
+
+        @include abstracts.breakpoint-up(large){
+          padding-inline: 2.75rem; 
+        }
+    }
+
+  &--underline {
+        @extend .button;
+        font-size: 0.9375rem;
+        color: abstracts.$primary500;
+        background-color: transparent;
+        padding: 0.5rem 0rem;
+        position: relative;
+        transition: color 200ms ease-in-out;
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0rem;
+            left: 0rem;
+            right: 0rem;
+            height: 2px;
+            width: 100%;
+            background-color: abstracts.$primary500;
+            transition: background-color 200ms ease-in-out;
+        }
+
+        &:hover {
+          color: abstracts.$primary300;
+          background-color: transparent;
+
+          &::after {
+            background-color: abstracts.$primary300;
+          }
+
+        }
+
+        @include abstracts.breakpoint-up(large) {
+          font-size: 1.125rem;
+        }
+  }
+
+  &--arrow {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg g{
+    transition: stroke 200ms ease-in-out;
+    fill: black;
+
+    &:hover {
+      stroke: abstracts.$primary300;
+    }
+  }
+}
+}

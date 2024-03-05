@@ -1,0 +1,164 @@
+@use '../abstracts';
+@use '../base';
+
+.header {
+  @include abstracts.grid;
+  align-items: center;
+
+  @include abstracts.breakpoint-up(large) {
+    column-gap: 1rem;
+  }
+
+  .logo {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+
+  .menu {
+    align-items: center;
+    height: 100%;
+    grid-column: 5 / -1;
+    grid-row: 1;
+
+    // inner grid - inside div
+    display: grid;
+    grid-template-columns:
+      repeat(5, minmax(1rem, 7.8125rem))
+      minmax(1.5rem, 1fr);
+    // at first I used padding-block, but this is not supported in most web browsers
+    padding: 2.5rem 0;
+
+    a {
+      text-decoration: none;
+      color: white;
+      &:hover {
+        font-weight: base.$extraBold;
+      }
+
+      &::before {
+        display: block;
+        content: attr(title);
+        font-weight: bold;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
+    }
+
+    @include abstracts.breakpoint-up(medium) {
+      background-color: abstracts.$primary500;
+      padding: 3.5625rem 0;
+    }
+
+    @include abstracts.breakpoint-up(large) {
+      background-color: abstracts.$primary500;
+      column-gap: 1rem;
+    }
+  }
+
+  .hamburger-menu {
+    grid-column: 5;
+    grid-row: 1;
+    justify-self: end;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+
+    span {
+      /*transition for animation of hamburger menu*/
+      transition: all 300ms ease-in-out;
+      width: 1.5rem;
+      height: 2px;
+      background-color: abstracts.$secondary400;
+      display: block;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+
+  .mobile-nav {
+    grid-row: 1;
+
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    width: 15.75rem;
+    padding: 1.625rem;
+
+    color: abstracts.$primary10;
+    background-color: abstracts.$secondary900;
+
+    text-align: center;
+    visibility: hidden; // first set for animation / fade-in and out
+
+    nav {
+      list-style-type: none;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      padding-bottom: 1.5rem;
+      text-decoration: none;
+      display: block;
+    }
+  }
+
+  .desktop-nav {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    justify-self: end;
+
+    color: abstracts.$primary10;
+    font-weight: base.$regular;
+
+    padding-left: 1rem;
+
+    nav {
+      list-style-type: none;
+      float: right;
+    }
+
+    ul {
+      display: inline;
+    }
+
+    li {
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 1.25rem;
+      padding-bottom: 1rem;
+
+      @include abstracts.breakpoint-up(large) {
+        padding-right: 2rem;
+      }
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  /*final stat of the animation of hamburger menu*/
+  .open {
+    .hamburger-menu {
+      span:first-child {
+        transform-origin: left;
+        transform: rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:last-child {
+        transform-origin: left;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

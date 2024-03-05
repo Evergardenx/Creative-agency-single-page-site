@@ -1,0 +1,43 @@
+// media queries mixins 
+
+//640px, 1024px, 1400px
+$breakpoints-up:  (
+    "medium": "40em", 
+    "large": "64em", 
+    "xlarge": "87.5em",
+    );
+
+
+// 639px, 1023px, 1399px
+$breakpoints-down:  (
+    "small": "39.9375em", 
+    "medium": "63.9375em", 
+    "large": "87.4375em"
+    );
+
+
+@mixin breakpoint-up($break){
+    @media screen and (min-width: map-get($breakpoints-up, $break)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($break){
+    @media screen and (max-width: map-get($breakpoints-down, $break)) {
+        @content;
+    }
+}
+
+@mixin grid(){
+    display: grid;
+    // At first, I used 'grid-template-columns: subgrid;', but this is supported only in firefox
+    grid-template-columns: 
+        minmax(1.5rem, 1fr) 
+        repeat(8, minmax(1rem, 7.8125rem))
+        minmax(1.5rem, 1fr);
+    width: 100%;
+
+    @include breakpoint-up(large) {
+        column-gap: 1rem;
+    }
+}

@@ -1,0 +1,54 @@
+@use '../abstracts';
+
+.footer {
+  @include abstracts.grid;
+
+  padding: 4.875rem 0 6.25rem;
+  position: relative;
+
+  @include abstracts.breakpoint-up(medium) {
+    align-items: center;
+    justify-content: center;
+  }
+
+  h2 {
+    margin-bottom: 2.875rem;
+    grid-column: 2 / 9;
+
+    @include abstracts.breakpoint-up(medium) {
+      grid-column: 2 / 7;
+    }
+  }
+
+  .button--primary {
+    font-size: 1rem;
+    grid-column: 2 / 8;
+    justify-self: flex-start;
+    grid-row: 2;
+
+    @include abstracts.breakpoint-up(medium) {
+      grid-column: 7 / 10;
+      grid-row: 1;
+      justify-self: end;
+    }
+  }
+
+  &::before {
+    @include abstracts.breakpoint-up(large) {
+      content: "";
+
+      width: 8.4375rem;
+      height: 3.8125rem;
+
+      left: 0;
+      top: 50%;
+      transform: translate(-4.21875rem, -50%);
+      z-index: -1;
+
+      
+      background-image: url("../assets/desktop/bg-pattern-wave-red.svg");
+      background-size: cover;
+      position: absolute;
+    }
+  }
+}

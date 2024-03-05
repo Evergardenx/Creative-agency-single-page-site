@@ -1,0 +1,157 @@
+/*
+Animation of mobile toggle menu
+*/
+
+@keyframes fade-in {
+  from {
+      visibility: hidden;
+      opacity: 0;
+  }
+  
+  to {
+      visibility: visible;
+      opacity: 1;
+  }
+}
+
+.fade-in {
+    animation: fade-in 300ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fade-out 300ms ease-in-out forwards;
+}
+
+
+
+// source https://www.youtube.com/watch?v=6AuH3xSo6f8
+// this is for images of the slider
+.slideInLeft {
+    animation-name: animateInLeft;
+    z-index: 1000;
+  }
+  
+  .slideInRight {
+    animation-name: animateInRight;
+    z-index: 1000;
+  }
+  
+  .slideOutLeft {
+    transform: translateX(-100%);
+  }
+  
+  .slideOutRight {
+    transform: translateX(100%);
+  }
+  
+  @keyframes animateInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes animateInRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+// this is for headline of the slider
+
+  .slideInTop {
+    animation-name: animateInTop;
+    z-index: 1000;
+  }
+  
+  .slideInBottom {
+    animation-name: animateInBottom;
+    z-index: 1000;
+  }
+  
+  .slideOutTop {
+    animation-name: animateOutTop;
+    
+  }
+  
+  .slideOutBottom {
+    animation-name: animateOutBottom;
+   
+  }
+  
+  @keyframes animateInTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+      
+    }
+    50%{
+        opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes animateInBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes animateOutTop {
+    0% {
+      transform: translateY(0%);
+      opacity: 1;
+      
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes animateOutBottom {
+    0% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+

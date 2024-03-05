@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+   
+    <link rel="stylesheet" href="sass/styles.css" />
+    <title>Frontend Mentor | Creative single page site</title>
+  </head>
+
+  <body>
+    <div class="grid_wrapper">
+      <header class="header">
+        <a class="logo" href="#">
+          <span class="sr-only">Creative - Homepage</span>
+          <img
+          
+          src="./assets/desktop/logo.svg"
+          alt="Creative company logo"
+        />
+        </a>
+         <div class="menu">
+          <!-- This is mobile hamburger menu -->
+          <button class="hamburger-menu mobile-only" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- This is mobile toggle menu -->
+          <div class="mobile-nav" id="mobile-navigation">
+            <nav aria-label="Main">
+              <ul>
+              <li><a href="#" class="link">About</a></li>
+              <li><a href="#" class="link">Service</a></li>
+              <li><a href="#" class="link">Projects</a></li>
+              </ul>
+            </nav>
+            <button class="button--menu button--primary" href="#">
+              Schedule a Call
+            </button>
+          </div>
+
+          <!-- This is desktop menu -->
+          <div class="desktop-nav tablet-desktop">
+            <nav aria-label="Main">
+              <ul>
+              <li><a href="#" class="link" title="About">About</a></li>
+              <li><a href="#" class="link" title="Service">Service</a></li>
+              <li><a href="#" class="link" title="Projects">Projects</a></li>
+              </ul>
+              <button class="button--menu button--secondary" href="#">
+                Schedule a Call
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="hero">
+          <div class="hero__image" role="img" alt="Two men sitting in office and working on computers and
+          laptops">
+          </div>
+          <div class="hero__text container">
+            <h1>Branding & website design agency</h1>
+            <p>
+              We specialize in visual storytelling by creating cohesive brand
+              and website design solutions for small businesses, giving lasting
+              impressions to audiences in a digital world.
+            </p>
+            <a href="#" class="button--primary">Learn more</a>
+          </div>
+        </section>
+
+        <section class="details">
+          <div class="details__image" >
+          </div>
+
+          <div class="details__design">
+            <h2 class="details__headline color--light">
+              <span class="color--primary">Design</span> is <br />strategic.
+            </h2>
+            <p class="details__paragraph color--light">
+              "A well-crafted design strategy consistently produces desired
+              outcomes and brand awareness. We are firm believers that success
+              lies in creative collaboration with our clients."
+            </p>
+            <button href="#" class="details__button button--underline"
+              >Schedule a call</button>
+          </div>
+
+          <div class="details__approach">
+            <h2>Our approach for creating a winning brand</h2>
+          </div>
+
+          <div class="details__list">
+            <ol>
+              <li>
+                <h3>Brand strategy</h3>
+                <p>
+                  Brand strategy is critical for long-term success. Outshining
+                  competitors and capturing the target audience are key.
+                </p>
+              </li>
+
+              <li>
+                <h3>Brand design</h3>
+                <p>
+                  Keeping the brand design unique and meaningful helps in
+                  communicating the brand’s timeless value effectively.
+                </p>
+              </li>
+
+              <li>
+                <h3>Web design</h3>
+                <p>
+                  A beautifully crafted website is the best tool for brand
+                  awareness, and ultimately results in increased revenues.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- This is slider section - images is setted as background images of .slider__image -->
+        <section class="slider">
+          <div class="slides">
+            <div class="slider__image active slide0">
+              <div class="slider__content">
+                <h3>Lean Product Roadmap</h3>
+                <p>2019 Project</p>
+              </div>
+            </div>
+
+            <div class="slider__image slide1">
+              <div class="slider__content">
+                <h3>New Majestic Hotel</h3>
+                <p>2018 Project</p>
+              </div>
+            </div>
+
+            <div class="slider__image slide2">
+              <div class="slider__content">
+                <h3>Crypto Dashboard</h3>
+                <p>2016 Project</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider__text">
+            <h2 class="slide__headline enabled">
+              Brand naming &<br />guidelines
+            </h2>
+            <h2 class="slide__headline">
+              Brand identity &<br />
+              merchandise
+            </h2>
+            <h2 class="slide__headline">
+              Brand identity &<br />
+              web design
+            </h2>
+
+            <!-- button contains svg icons that are inserted directly with svg tags -->
+            <div class="slide__buttons">
+              <button
+                href="javascript:void(0)"
+                class="button--arrow"
+                id="buttonBackward"
+              >
+                <div class="sr-only">previous slide</div>
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                  <g
+                    transform="matrix(-1 0 0 1 40 0)"
+                    stroke="#F94F4F"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <circle cx="20" cy="20" r="19.5" />
+                    <path stroke-width="2" d="M17.5 15l5 5-5 5" />
+                  </g></svg></button>
+
+              <button href="javascript:void(0)"
+                 class="button--arrow"
+                 id="buttonForward">
+                <div class="sr-only">next slide</div>
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                  <g stroke="#F94F4F" fill="none" fill-rule="evenodd">
+                    <circle cx="20" cy="20" r="19.5" />
+                    <path stroke-width="2" d="M17.5 15l5 5-5 5" />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer footer__container">
+        <h2>Let's build something great together.</h2>
+        <button href="#" class="button--primary"> Schedule a Call</button>
+      </footer>
+    </div>
+
+    <script src="./js/navigation.js"></script>
+    <script src="./js/slider.js"></script>
+  </body>
+</html>

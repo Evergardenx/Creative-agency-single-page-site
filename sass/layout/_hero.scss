@@ -1,0 +1,45 @@
+@use '../abstracts';
+
+.hero {
+  @include abstracts.grid;
+
+  &__image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 12.5rem;
+    background-image: url("../assets/mobile/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include abstracts.breakpoint-up(medium) {
+      background-image: url("../assets/tablet/image-hero.jpg");
+      background-position: right;
+      background-size: contain;
+      height: 100%;
+      z-index: -1;
+    }
+
+    @include abstracts.breakpoint-up(large) {
+      background-image: url("../assets/desktop/image-hero.jpg");
+    }
+  }
+
+  &__text {
+    grid-row: 2;
+    grid-column: 2 / 10;
+    z-index: 10;
+    padding-top: 2.5rem;
+    padding-bottom: 6rem;
+
+    @include abstracts.breakpoint-up(medium) {
+      grid-row: 1;
+      grid-column: 2 / 7;
+      padding-top: 77px;
+      padding-bottom: 150px;
+    }
+
+    @include abstracts.breakpoint-up(large) {
+      grid-column: 2 / 6;
+    }
+  }
+}
